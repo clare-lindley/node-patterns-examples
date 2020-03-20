@@ -1,3 +1,3 @@
 'use strict';
 
-import './propagating-errors';
+import './uncaught-exceptions';
