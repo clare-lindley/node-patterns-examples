@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <title>Socket.IO chat</title>
+
+    <!--
+    Where does /socket.io/socket.io.js file come from?
+    This is part of the magic done by io.listen on the server.
+    It creates a handler on the server to serve the socket.io.js script file
+    in this example it's being served from: http://localhost:3000/socket.io/socket.io.js
+    (more info in the book Socket.IO Real-time Web Application Development, page 56)
+    -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            let socket = io();
+
+            // submit chat message to server
+            $('form').submit(function(e){
+                e.preventDefault(); // prevents page reloading
+                // example of emitting an event from the client
+                socket.emit('chat message', $('#m').val());
+                $('#m').val('');
+
+                return false;
+            });
+
+            // receive chat message from server and display it
+            socket.on('chat message', function(msg){
+                console.log('message received outputting chat');
+                $('#messages').append($('<li>').text(msg));
+            });
+        });
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font: 13px Helvetica, Arial; }
+        form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+        form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+        form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+        #messages { list-style-type: none; margin: 0; padding: 0; }
+        #messages li { padding: 5px 10px; }
+        #messages li:nth-child(odd) { background: #eee; }
+    </style>
+</head>
+<body>
+<ul id="messages"></ul>
+<form action="">
+    <input id="m" autocomplete="off" /><button>Send</button>
+</form>
+</body>
+</html>
