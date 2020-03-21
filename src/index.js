@@ -1,3 +1,3 @@
 'use strict';
 
-import './chapter2/module-loader';
+import './chapter2/using-my-first-module';
