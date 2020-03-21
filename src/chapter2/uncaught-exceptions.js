@@ -41,7 +41,7 @@ function readJSON(filename, callback){
 readJSON('data.txt', callback);
 
 process.on('uncaughtException', (err) => {
-	console.error(`This will catch at last the JSON parsing exception ${err.message}`);
+	console.error(`Crash bang wallop! What an uncaught Exception! ${err.message}`);
 	process.exit(1);
 });
 

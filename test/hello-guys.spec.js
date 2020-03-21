@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import sayHello from "../src/hello-guys";
+import sayHello from "../src/chapter2/hello-guys";
 
 describe("sayHello test", () => {
     describe("sayHello function", () => {
