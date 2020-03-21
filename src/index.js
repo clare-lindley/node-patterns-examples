@@ -1,3 +1,3 @@
 'use strict';
 
-import './uncaught-exceptions';
+import './chapter2/module-loader';
