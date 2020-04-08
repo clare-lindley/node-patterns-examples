@@ -1,3 +1,3 @@
 'use strict';
 
-import './chapter2/es6_modules/main';
+import './chapter2/event-emitters'
