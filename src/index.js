@@ -1,3 +1,3 @@
 'use strict';
 
-import './chapter2/event-emitters'
+import './chapter3/callbacks'
